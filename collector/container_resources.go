@@ -1,12 +1,13 @@
 package collector
 
 import (
+	"sync"
+
 	"github.com/google-cloud-tools/kube-eagle/options"
 	"github.com/prometheus/client_golang/prometheus"
 	log "github.com/sirupsen/logrus"
 	corev1 "k8s.io/api/core/v1"
 	v1beta1 "k8s.io/metrics/pkg/apis/metrics/v1beta1"
-	"sync"
 )
 
 type containerResourcesCollector struct {
@@ -24,7 +25,7 @@ type containerResourcesCollector struct {
 }
 
 func init() {
-	registerCollector("container_resources", newContainerResourcesCollector)
+	//registerCollector("container_resources", newContainerResourcesCollector)
 }
 
 func newContainerResourcesCollector(opts *options.Options) (Collector, error) {
